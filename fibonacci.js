@@ -25,6 +25,3 @@ function fibsRec(n) {
     const prevArray = fibsRec(n - 1)
     return [...prevArray, prevArray[n-2] + prevArray[n-3]]
 }
-
-
-console.log(fibsRec(5));
