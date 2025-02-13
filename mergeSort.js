@@ -9,22 +9,16 @@ function mergeSort(array) {
 
     //merge
     const sortedArray = [];
-    while (sortedFirstHalf.length > 0 || sortedSecondHalf.length > 0) {
-        if (sortedFirstHalf.length == 0) {
-            sortedArray.push(sortedSecondHalf.shift());
-        }
-        else if (sortedSecondHalf.length == 0) {
-            sortedArray.push(sortedFirstHalf.shift());
-        }
-
-        else if (sortedFirstHalf[0] < sortedSecondHalf[0]) {
+    while (sortedFirstHalf.length > 0 && sortedSecondHalf.length > 0) {
+        if (sortedFirstHalf[0] < sortedSecondHalf[0]) {
             sortedArray.push(sortedFirstHalf.shift());
 
         } else {
             sortedArray.push(sortedSecondHalf.shift());
         }
     }
-    return sortedArray;
+    // Return sorted array plus whatever is left in either first or second half
+    return [...sortedArray, ...sortedFirstHalf, ...sortedSecondHalf];
 
 
 }
